@@ -7,6 +7,7 @@ import { LandingPage } from "./pages/LandingPage"
 import { Signup } from "./pages/Signup"
 import { Login } from "./pages/Login"
 import { HomePage } from "./pages/HomePage"
+import { Navbar } from "./components/Navbar"
 
 function App() {
 
@@ -23,7 +24,8 @@ function App() {
     return (<div>Loading...</div>)
 
   return (
-    <>
+    < div className="main-container">
+      <Navbar />
       <Routes>
         <Route path="/" element={!authUser ? <LandingPage /> : <Navigate to="/home" />} />
         <Route path="/home" element={authUser ? <HomePage /> : <Navigate to="/" />} />
@@ -34,7 +36,7 @@ function App() {
 
       <Toaster />
 
-    </>
+    </div >
   )
 }
 

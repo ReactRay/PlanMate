@@ -6,7 +6,6 @@ export function HomePage() {
 
     const { authUser, logout } = useAuthStore()
 
-    console.log(authUser)
     return (
         <div className="home-container">
             <header className="home-header">
@@ -21,18 +20,18 @@ export function HomePage() {
 
             <main>
 
-                <form className="home-form">
-                    <div>
+                <form >
+                    <div className="form-container-text">
                         <h2>tell the ai on what do you plan on doing and he will help you make an organized plan</h2>
                     </div>
                     <div className="text-area-container">
-                        <textarea id="text"></textarea>
+                        <textarea className="text-area-input" placeholder="what do you want to do today ?" id="text"></textarea>
                     </div>
+                    <button className="btn">lets do this!</button>
                 </form>
 
             </main>
 
-            <button className="btn" onClick={logout}> logout</button>
         </div>
     )
 }

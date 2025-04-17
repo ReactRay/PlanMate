@@ -1,0 +1,22 @@
+@use './globals' as *;
+
+nav {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    height: 3rem;
+  }
+
+  .btn {
+    color: rgba($color-light, $alpha: 0.9);
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+}

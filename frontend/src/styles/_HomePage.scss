@@ -1,0 +1,36 @@
+@use './globals' as *;
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  form {
+    background-color: rgba($color-light, 0.2);
+    width: 90%;
+    padding: 1rem;
+    backdrop-filter: blur(20px);
+
+    .text-area-input {
+      border: none;
+      resize: none;
+      width: 100%;
+      min-height: 10rem;
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 1.2rem;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 1rem 3rem rgba($color-light, 0.2);
+      }
+    }
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba($color-light, 0.5);
+      text-align: center;
+    }
+  }
+}
