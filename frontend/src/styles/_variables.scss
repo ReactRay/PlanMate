@@ -15,7 +15,8 @@ $color-black: #000;
   transition: all 0.8s;
 
   &:hover {
-    background-color: $color-light;
-    color: $color-dark;
+    background-color: rgba($color-light, 0.2);
+    backdrop-filter: blur(10px);
+    color: $color-light;
   }
 }

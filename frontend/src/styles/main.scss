@@ -1,4 +1,5 @@
 @use './landingPage';
+@use './login-signup';
 @use './globals' as *;
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
@@ -20,6 +21,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $color-light;
+}
+
+body {
+  background: linear-gradient(
+      to right bottom,
+      rgba($color-primary, 0.9),
+      rgba(#326e42, 0.8)
+    ),
+    url('tasks4.jpg');
+  background-position: top;
+  background-size: cover;
+
+  padding: 1rem 1rem;
 }
 
 img,

@@ -3,21 +3,6 @@
 .header {
   position: relative;
   height: 100vh;
-  background: linear-gradient(
-      to right bottom,
-      rgba($color-primary, 0.9),
-      rgba(#326e42, 0.8)
-    ),
-    url('tasks4.jpg');
-  background-position: top;
-  background-size: cover;
-
-  &__logo-box {
-    width: 4rem;
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-  }
 
   &__hero-box {
     position: absolute;
