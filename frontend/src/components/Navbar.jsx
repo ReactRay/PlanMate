@@ -9,15 +9,11 @@ export function Navbar() {
 
     return (
         <nav>
-
             <div className="logo">
                 <Link to={'/'}>
                     <img src="logo.png" alt="" />
                 </Link>
             </div>
-
-
-
             <div className="nav-list">
                 <ul>
                     <li >
@@ -33,11 +29,9 @@ export function Navbar() {
                             </li>
                         </>
                         )
-
                     }
                 </ul>
             </div>
-
         </nav>
     )
 }

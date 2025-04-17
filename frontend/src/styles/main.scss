@@ -18,14 +18,9 @@
 html,
 body {
   font-family: 'lato', 'sans-serif';
-  height: 100%;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $color-light;
-}
-
-body {
   background: linear-gradient(
       to right bottom,
       rgba($color-primary, 0.9),
@@ -61,4 +56,8 @@ a {
 ul,
 ol {
   list-style: none;
+}
+
+.main-container {
+  min-height: 100dvh;
 }
