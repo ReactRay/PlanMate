@@ -1,0 +1,51 @@
+@use './globals' as *;
+
+.header {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(
+      to right bottom,
+      rgba($color-primary, 0.9),
+      rgba(#326e42, 0.8)
+    ),
+    url('tasks4.jpg');
+  background-position: top;
+  background-size: cover;
+
+  &__logo-box {
+    width: 4rem;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+
+  &__hero-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-light;
+    text-align: center;
+
+    &-primary {
+      display: block;
+      font-size: 5rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 2rem;
+    }
+
+    &-secondary {
+      display: block;
+      font-weight: 100;
+      text-transform: uppercase;
+      color: $color-light;
+      margin-bottom: 2rem;
+    }
+  }
+  &__btn-box {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
