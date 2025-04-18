@@ -1,5 +1,16 @@
 import mongoose from 'mongoose'
 
+const taskSubSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  duration: Number,
+  priority: {
+    type: String,
+    enum: ['low', 'medium', 'high'],
+    default: 'medium',
+  },
+})
+
 const userSchema = new mongoose.Schema(
   {
     email: {
@@ -20,9 +31,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: '',
     },
-    todo: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Task' }],
-    progress: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Task' }],
-    done: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Task' }],
+    todo: [taskSubSchema],
+    progress: [taskSubSchema],
+    done: [taskSubSchema],
   },
   { timestamps: true }
 )

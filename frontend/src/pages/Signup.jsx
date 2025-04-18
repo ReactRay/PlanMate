@@ -17,7 +17,7 @@ export function Signup() {
         const userToSave = { fullName, email, password }
 
         signup(userToSave)
-        toast.sucess('you sign up successfully')
+        toast.success('you sign up successfully')
 
     };
 
