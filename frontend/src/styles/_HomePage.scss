@@ -41,7 +41,7 @@
 .user-profile {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   margin-bottom: 3rem;
   background-color: rgba($color-light, 0.2);
   padding: 1.25rem 1.5rem;
@@ -65,21 +65,34 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    .btn {
+      border: none;
+      width: 4rem;
+      padding: 0.4rem;
+      font-weight: 400;
+      font-size: 95%;
+      background-color: $color-secondary;
+    }
 
     li {
       font-size: 1rem;
-      color: #333;
+      color: #333333b9;
       margin-bottom: 0.25rem;
 
       &:first-child {
-        font-weight: 600;
-        font-size: 1.1rem;
+        font-weight: 400;
+        font-size: 1.5rem;
       }
     }
   }
 
   @media (max-width: 600px) {
     flex-direction: column;
+    gap: 0;
     text-align: center;
 
     img {

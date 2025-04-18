@@ -12,6 +12,7 @@ nav {
 
   .btn {
     color: rgba($color-light, $alpha: 0.9);
+    font-size: 1.2rem;
   }
 
   ul {
@@ -19,5 +20,13 @@ nav {
     align-items: center;
     justify-content: flex-start;
     gap: 2rem;
+  }
+}
+
+@media (max-width: 764px) {
+  nav {
+    .btn {
+      font-size: 1.2rem;
+    }
   }
 }

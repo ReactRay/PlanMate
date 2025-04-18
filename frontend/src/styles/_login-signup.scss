@@ -18,11 +18,10 @@
   }
 
   input {
-    padding: 1rem;
     border-bottom: 1px solid rgba($color-light, 0.7);
-
+    padding: 0.2rem;
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 
   .btn {
@@ -34,5 +33,19 @@
     display: flex;
     gap: 1rem;
     justify-content: center;
+  }
+}
+
+@media (max-width: 764px) {
+  .form-container {
+    height: 60%;
+
+    .btn-box {
+      flex-direction: column;
+    }
+    .btn {
+      padding: 0.4rem;
+      font-size: 90%;
+    }
   }
 }

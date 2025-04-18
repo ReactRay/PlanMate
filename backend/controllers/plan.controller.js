@@ -36,8 +36,10 @@ export async function getPlan(req, res) {
 }
 
 export async function resetPlan(req, res) {
+  const userId = req.body.userId
+  console.log(userId)
   try {
-    const user = await User.findById(req.body.userId)
+    const user = await User.findById(userId)
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' })

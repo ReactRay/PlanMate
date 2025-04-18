@@ -38,7 +38,6 @@ export function HomePage() {
         setUserInput("")
     }
 
-    console.log(hasList, authUser, 'testing')
 
     return (
         <div className="home-container">
@@ -65,7 +64,6 @@ export function HomePage() {
                         </div>
                         <div className="btn-box">
                             <button className="btn" type="submit">Let's do this!</button>
-                            <button className="btn" type="button" onClick={() => setUserInput('')}>Reset</button>
                         </div>
                     </form>
                 ) : (
