@@ -38,6 +38,7 @@ export async function getPlan(req, res) {
 export async function resetPlan(req, res) {
   const userId = req.body.userId
   console.log(userId)
+
   try {
     const user = await User.findById(userId)
 
@@ -72,19 +73,24 @@ export const generateTasksFromPlan = async (plan = '') => {
         },
         {
           role: 'user',
-          content: `Break this plan into tasks with title, description, duration (in hours), and priority (low, medium, high). Return a JSON array ONLY.
-
-Plan: ${plan}`,
+          content: `Break this plan into tasks with title, description, duration (in hours), and priority (low, medium, high). Return a JSON array ONLY.\n\nPlan: ${plan}`,
         },
       ],
       temperature: 0.5,
     })
 
-    const jsonText = aiResponse.choices[0]?.message?.content?.trim()
+    const raw = aiResponse.choices[0]?.message?.content?.trim()
 
-    const tasks = JSON.parse(jsonText)
+    // Remove markdown code fences if present
+    const jsonText = raw.replace(/```json|```/g, '').trim()
 
-    return tasks
+    try {
+      const tasks = JSON.parse(jsonText)
+      return tasks
+    } catch (err) {
+      console.error('Failed to parse OpenAI response:', jsonText)
+      throw new Error('Invalid JSON returned by OpenAI')
+    }
   } catch (err) {
     console.error('OpenAI error:', err.message)
     throw err
