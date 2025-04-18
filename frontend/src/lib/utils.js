@@ -5,3 +5,11 @@ export function formatMessageTime(date) {
     hour12: false,
   })
 }
+
+export function checkArrays(user) {
+  if (!user) return
+
+  return (
+    user.todo.length > 0 || user.progress.length > 0 || user.done.length > 0
+  )
+}

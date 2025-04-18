@@ -74,4 +74,23 @@ export const useAuthStore = create((set, get) => ({
       set({ isUpdatingProfile: false })
     }
   },
+
+  getUserPlan: async (userId, userInput) => {
+    set({ isUpdatingProfile: true })
+
+    try {
+      const res = await axiosInstance.post('/plan/getplan', {
+        userId,
+        userInput,
+      })
+
+      set({ authUser: res.data.user })
+      toast.success('Plan generated and tasks added to your todo list')
+    } catch (error) {
+      console.error('Error in getUserPlan:', error)
+      toast.error(error.response?.data?.message || 'Failed to generate plan')
+    } finally {
+      set({ isUpdatingProfile: false })
+    }
+  },
 }))
