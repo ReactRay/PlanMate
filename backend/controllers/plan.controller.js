@@ -35,6 +35,27 @@ export async function getPlan(req, res) {
   }
 }
 
+export async function resetPlan(req, res) {
+  try {
+    const user = await User.findById(req.body.userId)
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' })
+    }
+
+    user.todo = []
+    user.progress = []
+    user.done = []
+
+    await user.save()
+
+    res.status(200).json(user)
+  } catch (error) {
+    console.log('Error in resetPlan:', error)
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
+}
+
 export const generateTasksFromPlan = async (plan = '') => {
   if (!plan.trim()) return []
 

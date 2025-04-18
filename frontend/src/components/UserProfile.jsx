@@ -6,13 +6,17 @@ import { useRef } from "react";
 export function UserProfile() {
 
 
-    const { authUser, isUpdatingProfile, updateProfile } = useAuthStore();
+    const { authUser, isUpdatingProfile, updateProfile, resetUserPlan } = useAuthStore();
     const [selectedImg, setSelectedImg] = useState(null);
 
     const fileInputRef = useRef(null);
 
     function handleClick() {
         fileInputRef.current.click()
+    }
+
+    async function handleReset() {
+        await resetUserPlan(authUser._id)
     }
 
 
@@ -55,6 +59,7 @@ export function UserProfile() {
             <ul>
                 <li>{authUser.fullName}</li>
                 <li>{authUser.email}</li>
+                <li><button onClick={handleReset} className="btn">reset</button></li>
             </ul>
 
         </div>

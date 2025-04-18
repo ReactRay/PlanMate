@@ -94,6 +94,20 @@ export const useAuthStore = create((set, get) => ({
       set({ isUpdatingProfile: false })
     }
   },
+
+  resetUserPlan: async (userId) => {
+    set({ isUpdatingProfile: true })
+
+    try {
+      const res = await axiosInstance.delete('/plan/reset', {
+        userId,
+      })
+
+      set({ authUser: res.data.user })
+      toast.success('plans has been reset')
+    } catch (error) {}
+  },
+
   updateTaskGroup: (task, fromGroup, toGroup) => {
     const { authUser } = get()
 

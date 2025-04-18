@@ -1,16 +1,24 @@
 import toast from "react-hot-toast"
 import { useAuthStore } from "../store/useAuthStore"
 import { UserProfile } from "../components/UserProfile"
-import { useState, useMemo } from "react"
+import { useEffect, useState } from "react"
 import { checkArrays } from "../lib/utils"
 import { Kanban } from '../components/Kanban'
 
-export function HomePage({ authUser }) {
+export function HomePage() {
+    const authUser = useAuthStore((s) => s.authUser)
     const isCheckingAuth = useAuthStore((s) => s.isCheckingAuth)
     const getUserPlan = useAuthStore((s) => s.getUserPlan)
-    const [userInput, setUserInput] = useState("")
 
-    const hasList = useMemo(() => checkArrays(authUser), [authUser])
+    const [userInput, setUserInput] = useState("")
+    const [hasList, setHasList] = useState(false)
+
+    useEffect(() => {
+        if (authUser) {
+            const result = checkArrays(authUser)
+            setHasList(result)
+        }
+    }, [authUser])
 
     if (isCheckingAuth || !authUser) return <div>Loading...</div>
 
@@ -23,8 +31,14 @@ export function HomePage({ authUser }) {
         }
 
         await getUserPlan(authUser._id, userInput)
-        setUserInput('')
+
+        const updatedUser = useAuthStore.getState().authUser
+        setHasList(checkArrays(updatedUser))
+
+        setUserInput("")
     }
+
+    console.log(hasList, authUser, 'testing')
 
     return (
         <div className="home-container">
