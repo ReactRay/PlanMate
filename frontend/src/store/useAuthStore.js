@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { axiosInstance } from '../lib/axios.js'
 import toast from 'react-hot-toast'
+import { checkArrays } from '../lib/utils.js'
 
 const BASE_URL =
   import.meta.env.MODE === 'development' ? 'http://localhost:5000' : '/'
@@ -92,5 +93,20 @@ export const useAuthStore = create((set, get) => ({
     } finally {
       set({ isUpdatingProfile: false })
     }
+  },
+  updateTaskGroup: (task, fromGroup, toGroup) => {
+    const { authUser } = get()
+
+    const updatedFrom = authUser[fromGroup].filter((t) => t._id !== task._id)
+
+    const updatedTo = [...authUser[toGroup], task]
+
+    const updatedUser = {
+      ...authUser,
+      [fromGroup]: updatedFrom,
+      [toGroup]: updatedTo,
+    }
+
+    set({ authUser: updatedUser })
   },
 }))

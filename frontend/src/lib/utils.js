@@ -7,9 +7,10 @@ export function formatMessageTime(date) {
 }
 
 export function checkArrays(user) {
-  if (!user) return
-
+  if (!user) return false
   return (
-    user.todo.length > 0 || user.progress.length > 0 || user.done.length > 0
+    (Array.isArray(user.todo) && user.todo.length > 0) ||
+    (Array.isArray(user.progress) && user.progress.length > 0) ||
+    (Array.isArray(user.done) && user.done.length > 0)
   )
 }
