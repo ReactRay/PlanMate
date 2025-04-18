@@ -12,7 +12,7 @@
     width: 100%;
     background-color: rgba($color-light, 0.2);
     padding: 1rem;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(4px);
 
     .text-area-input {
       border: none;
@@ -33,7 +33,6 @@
       font-size: 2rem;
       font-weight: 300;
       color: rgba($color-light, 0.7);
-      text-align: center;
     }
   }
 }
@@ -44,8 +43,8 @@
   gap: 1rem;
   margin-bottom: 3rem;
   background-color: rgba($color-light, 0.2);
+  backdrop-filter: blur(4px);
   padding: 1.25rem 1.5rem;
-  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(239, 237, 237, 0.05);
 
   img {
@@ -110,4 +109,8 @@
 .hidden {
   opacity: 0;
   width: 0;
+}
+
+.form-container-text {
+  padding: 1rem 0;
 }

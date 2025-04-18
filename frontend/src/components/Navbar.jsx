@@ -17,9 +17,9 @@ export function Navbar() {
             <div className="nav-list">
                 <ul>
                     <li >
-                        <Link to={'/'} className="btn ">
+                        {!authUser && <Link to={'/'} className="btn ">
                             Home
-                        </Link>
+                        </Link>}
                     </li>
                     {
                         authUser && (<>

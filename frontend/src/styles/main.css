@@ -161,8 +161,8 @@ nav ul {
   width: 100%;
   background-color: rgba(253, 251, 238, 0.2);
   padding: 1rem;
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
 }
 .home-container form .text-area-input {
   border: none;
@@ -181,7 +181,6 @@ nav ul {
   font-size: 2rem;
   font-weight: 300;
   color: rgba(253, 251, 238, 0.7);
-  text-align: center;
 }
 
 .user-profile {
@@ -190,8 +189,9 @@ nav ul {
   gap: 1rem;
   margin-bottom: 3rem;
   background-color: rgba(253, 251, 238, 0.2);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
   padding: 1.25rem 1.5rem;
-  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(239, 237, 237, 0.05);
 }
 .user-profile img {
@@ -249,6 +249,10 @@ nav ul {
 .hidden {
   opacity: 0;
   width: 0;
+}
+
+.form-container-text {
+  padding: 1rem 0;
 }
 
 .done {
