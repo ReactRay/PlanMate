@@ -8,7 +8,7 @@ import { Signup } from "./pages/Signup"
 import { Login } from "./pages/Login"
 import { HomePage } from "./pages/HomePage"
 import { Navbar } from "./components/Navbar"
-
+import Loader from "./components/Loader"
 function App() {
 
 
@@ -21,7 +21,7 @@ function App() {
   }, [checkAuth])
 
   if (isCheckingAuth && !authUser)
-    return (<div>Loading...</div>)
+    return (<Loader />)
 
   return (
     < div className="main-container">

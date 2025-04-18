@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { useRef } from "react";
+import Loader from "./Loader";
 
 export function UserProfile() {
 
@@ -35,8 +36,7 @@ export function UserProfile() {
         };
     };
 
-    if (isUpdatingProfile)
-        return <div>Loading...</div>
+
 
     return (
         <div className="user-profile">

@@ -1,16 +1,16 @@
 @use './globals' as *;
 
 .done {
-  background-color: rgba(#56dd6f, $alpha: 0.2);
+  background-color: rgba(#84c28f, $alpha: 0.8);
   border-left: 4px solid #56dd6f;
 }
 
 .todo {
-  background-color: rgba($color-secondary, 0.2);
+  background-color: rgba(#b9acac, 0.8);
 }
 
 .progress {
-  background-color: rgba($color-primary, 0.2);
+  background-color: rgba(#cce7e4, 0.8);
   border-left: 4px solid $color-primary;
 }
 .kanban-board {

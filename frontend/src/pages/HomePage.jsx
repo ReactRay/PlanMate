@@ -4,12 +4,13 @@ import { UserProfile } from "../components/UserProfile"
 import { useEffect, useState } from "react"
 import { checkArrays } from "../lib/utils"
 import { Kanban } from '../components/Kanban'
+import Loader from "../components/Loader"
 
 export function HomePage() {
     const authUser = useAuthStore((s) => s.authUser)
     const isCheckingAuth = useAuthStore((s) => s.isCheckingAuth)
     const getUserPlan = useAuthStore((s) => s.getUserPlan)
-
+    const { isUpdatingProfile } = useAuthStore()
     const [userInput, setUserInput] = useState("")
     const [hasList, setHasList] = useState(false)
 
@@ -20,7 +21,7 @@ export function HomePage() {
         }
     }, [authUser])
 
-    if (isCheckingAuth || !authUser) return <div>Loading...</div>
+    if (isCheckingAuth || !authUser || isUpdatingProfile) return <Loader />
 
     async function handleSubmit(e) {
         e.preventDefault()
