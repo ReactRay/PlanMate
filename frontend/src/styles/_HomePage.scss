@@ -22,6 +22,7 @@
       padding: 1rem;
       border-radius: 4px;
       font-size: 1.2rem;
+      opacity: 50%;
 
       &:focus {
         outline: none;
@@ -45,7 +46,7 @@
   background-color: rgba($color-light, 0.2);
   backdrop-filter: blur(4px);
   padding: 1.25rem 1.5rem;
-  box-shadow: 0 4px 12px rgba(239, 237, 237, 0.05);
+  box-shadow: 0 4px 12px rgba(236, 235, 235, 0.05);
 
   img {
     height: 5rem;

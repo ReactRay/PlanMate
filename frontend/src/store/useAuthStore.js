@@ -113,11 +113,10 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
-  updateTaskGroup: (task, fromGroup, toGroup) => {
+  updateTaskGroup: async (task, fromGroup, toGroup) => {
     const { authUser } = get()
 
     const updatedFrom = authUser[fromGroup].filter((t) => t._id !== task._id)
-
     const updatedTo = [...authUser[toGroup], task]
 
     const updatedUser = {
@@ -125,7 +124,13 @@ export const useAuthStore = create((set, get) => ({
       [fromGroup]: updatedFrom,
       [toGroup]: updatedTo,
     }
-
     set({ authUser: updatedUser })
+
+    try {
+      const res = await axiosInstance.put('/plan/update-plan', { updatedUser })
+    } catch (err) {
+      console.error('Failed to update task group:', err)
+      toast.error('Something went wrong updating the plan')
+    }
   },
 }))

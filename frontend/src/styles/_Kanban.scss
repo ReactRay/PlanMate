@@ -30,8 +30,9 @@
 }
 
 .kanban-group {
-  background-color: rgba($color-light, 0.5);
-  border-radius: 12px;
+  background-color: rgba($color-light, 0.3);
+  backdrop-filter: blur(4px);
+  border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   padding: 1rem;
   flex: 1 1 300px;
@@ -62,7 +63,7 @@
   transition: transform 0.2s ease, background 0.2s ease;
 
   &:hover {
-    background: #e4f7eb;
+    opacity: 70%;
     transform: translateY(-2px);
   }
 

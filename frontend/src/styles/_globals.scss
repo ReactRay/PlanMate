@@ -1,4 +1,5 @@
 @forward './variables';
+@use './variables' as *;
 
 .loader-container {
   position: absolute;
@@ -14,6 +15,18 @@
   border-top: 4px solid #00cc66;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+}
+
+.loader-layout {
+  height: 100dvh;
+  background: linear-gradient(
+      to right bottom,
+      rgba($color-primary, 0.9),
+      rgba(#326e42, 0.8)
+    ),
+    url('https://res.cloudinary.com/danlxus36/image/upload/v1744982537/tasks4_uiqmkh.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 /* Animation */
