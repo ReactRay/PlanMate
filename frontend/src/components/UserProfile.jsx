@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { useRef } from "react";
+import { checkArrays } from "../lib/utils";
 import Loader from "./Loader";
 
 export function UserProfile() {
@@ -59,7 +60,7 @@ export function UserProfile() {
             <ul>
                 <li>{authUser.fullName}</li>
                 <li>{authUser.email}</li>
-                <li><button onClick={handleReset} className="btn">reset</button></li>
+                {checkArrays(authUser) && <li><button onClick={handleReset} className="btn">reset</button></li>}
             </ul>
 
         </div>

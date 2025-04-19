@@ -3,6 +3,8 @@
 .header {
   position: relative;
   height: 90dvh;
+  animation: apear 1s 1.5s forwards;
+  animation-fill-mode: backwards;
 
   &__hero-box {
     position: absolute;
